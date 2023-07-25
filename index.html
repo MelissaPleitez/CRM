@@ -6,55 +6,85 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>CRM</title>
 </head>
-<body id="back_color">
+<body class="back_color">
  
      
-    <div class="text-center mb-4">
-        <h1 class="fw-bold text-white">Appointment Manager</h1>
-    </div>
 
-    <div class="container mt-5 card p-4  border border-3">
-        <h3 class="mb-3">Personal Data:</h3>
-        <div class="row">
-        <div class="col-md-6 col-12">
-        <form id="form" class="row g-3">
-        <div class="mb-3 col-auto ">
-            <label for="patient_name" class="form-label  fw-bold">Patient Name:</label>
-            <input type="text" name="patient_name" id="patient_name" class="form-control" >
-        </div>
-        <div class="mb-3 col-auto">
-            <label for="phone" class="form-label  fw-bold">Phone Number:</label>
-            <input type="text" name="phone" id="phone" class="form-control">
-        </div>
-      <div class="mb-3 col-auto">
-        <label for="date" class="form-label fw-bold">Date:</label>
-        <input type="date" name="date" id="date" class="form-control">
-      </div>
-       <div class="mb-3 col-auto">
-        <label for="time" class="form-label fw-bold">Time:</label>
-        <input type="time" name="time" id="time" class="form-control">
-       </div>
-       <div class="mb-3 col-auto">
-        <label for="symptoms" class="form-label  fw-bold">Symptoms:</label>
-        <textarea name="symptoms" id="symptoms" cols="30" rows="10" class="form-control"></textarea>
-       </div>
-      <div>
-        <button type="submit" class="btn btn_primary_create">Create Date</button>
-      </div>
-        </form>
-        </div>
-        <div class="col-md-6 col-12">
-        <div class="mt-5 text-center">
-            <h3 class="mb-1 ">Appointments:</h3>
-        </div>
-        <ul id="results" class="list-group">
 
-        </ul>
-        </div>    
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 menu-bg ">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2  min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none">
+                        <h2 class="fs-3 d-none d-sm-inline">Administration <p class="fs-3 d-none d-sm-inline">Menu</p></h2> 
+                        
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li id="btn-client" class="nav-item">
+                            <a href="#" id="client" class="nav-link align-middle px-0">
+                                <i class="fs-4 bi bi-house-fill icono"></i> <span class="ms-1 d-none d-sm-inline">Clients</span>
+                            </a>
+                        </li>
+                     
+                        <li id="btn-new" >
+                            <a href="#" id="newClients" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi bi-plus-circle-fill icono"></i> <span class="ms-1 d-none d-sm-inline ">New client</span></a>
+                        </li>
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+            <div class="col py-3">
+                <div class="dropdown pb-4">
+                    <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://avatars.githubusercontent.com/u/92410851?v=4" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">Pleitez</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+
+                <div id="viewClient" class="text-center mb-4">
+                    <h1 class="fw-bold ">CRM Client</h1>
+                </div>
+                <div id="viewNew" class="text-center mb-4 d-none">
+                    <h1 class="fw-bold ">CRM New Client</h1>
+
+                    <form action="" class="row g-1">
+                        <div class="col-auto">
+                            <label for="" class="form-label">Name</label>
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <label for="" class="form-label">Email</label>
+                            <input type="email" name="" id="" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <label for="" class="form-label">Telephone</label>
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <label for="" class="form-label">Company</label>
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+    
 
 
     <script src="js/main.js" type="module"></script>
