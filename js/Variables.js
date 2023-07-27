@@ -9,7 +9,9 @@ export const email_input = document.querySelector('#email')
 export const telephone_input = document.querySelector('#telephone')
 export const company_input = document.querySelector('#company')
 export const table_info= document.querySelector('#info_clients')
-
+export const btn_dark_mode= document.querySelector('.btn-mode')
+export const display_container = document.querySelector('#display-container')
+export const table= document.querySelector('.table')
 export const allClients={
     name: '',
     email: '',

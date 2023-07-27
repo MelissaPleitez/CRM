@@ -19,7 +19,7 @@
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 menu-bg ">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2  min-vh-100">
                     <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none">
-                        <h2 class="fs-3 d-none d-sm-inline">Administration <p class="fs-3 d-none d-sm-inline">Menu</p></h2> 
+                        <h2 class="fs-3 d-none d-sm-inline title_nav">Administration <p class="fs-3 d-none d-sm-inline">Menu</p></h2> 
                         
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -37,24 +37,30 @@
                     <hr>
                 </div>
             </div>
-            <div class="col py-3">
-                <div class="dropdown pb-4">
-                    <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://avatars.githubusercontent.com/u/92410851?v=4" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="d-none d-sm-inline mx-1">Pleitez</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                </div>
+            <div id="display-container" class="col py-3">
+                <div class="d-flex">
+                    <div class="dropdown pb-4 justify-content-between">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://avatars.githubusercontent.com/u/92410851?v=4" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1 elements_light">Pleitez</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item elements_light" href="#">Settings</a></li>
+                            <li><a class="dropdown-item elements_light" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item elements" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                    <div class="justify-content-between">
+                   <a class="btn-mode border-0 text-dark" title="btn_mode"><i class="bi bi-moon-fill"></i></a>
+                    </div>
+                   </div>
+               
 
-                <div id="viewClient" class="text-center mb-4">
-                    <h1 class="fw-bold ">CRM Client</h1>
+                <div id="viewClient" class="text-center mb-4 ">
+                    <h1 class="fw-bold titles_light">CRM Client</h1>
                     <table class="table ">
                         <thead>
                             <tr>
@@ -72,24 +78,24 @@
                         </tbody>
                       </table>
                 </div>
-                <div id="viewNew" class="text-center mb-4 d-none">
-                    <h1 class="fw-bold ">CRM New Client</h1>
+                <div id="viewNew" class="text-center mb-4 d-none ">
+                    <h1 class="fw-bold titles_light">CRM New Client</h1>
 
                     <form id="form" action="" class="row g-1">
                         <div class="col-auto">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label elements_light">Name</label>
                             <input type="text" name="name" id="name" class="form-control">
                         </div>
                         <div class="col-auto">
-                            <label for="email" class="form-label">Email</label>
+                            <label for="email" class="form-label elements_light">Email</label>
                             <input type="email" name="email" id="email" class="form-control">
                         </div>
                         <div class="col-auto">
-                            <label for="telephone" class="form-label">Telephone</label>
+                            <label for="telephone" class="form-label elements_light">Telephone</label>
                             <input type="text" name="telephone" id="telephone" class="form-control">
                         </div>
                         <div class="col-auto">
-                            <label for="company" class="form-label">Company</label>
+                            <label for="company" class="form-label elements_light">Company</label>
                             <input type="text" name="company" id="company" class="form-control">
                         </div>
                         <div>

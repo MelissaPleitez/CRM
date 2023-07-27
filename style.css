@@ -6,22 +6,37 @@
 }
 
 
-h1, h2, h3{
+.title_nav{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: black; 
 }
 
-
-a, span{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:  #65655E;
-    font-size: large;
-    
+.titles_light{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   
 }
+
+.elements_light{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+}
+
+
+
 p {
    color: #7D80DA;
 }
 
 .icono{
     color: #7D80DA;
+}
+
+.modo_dark{
+background-color: #444442;
+}
+
+
+
+.btn-mode{
+    cursor: pointer;
 }

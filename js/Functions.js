@@ -1,4 +1,5 @@
-import {viewNew, clients, name_input, email_input, telephone_input, company_input, allClients} from "./Variables.js";
+import {viewNew, clients, name_input, email_input, telephone_input, 
+company_input, allClients, display_container, table, btn_dark_mode} from "./Variables.js";
 import NEW from "./New.js";
 import CLIENT from "./Clients.js";
 export let DB
@@ -67,7 +68,7 @@ if(edition){
     
     clients_info.editing({...allClients})
 
-    const transaction = DB.transaction(['crm', 'readwrite']);
+    const transaction = DB.transaction(['crm'],'readwrite');
     const objectStore =transaction.objectStore('crm')
     objectStore.put(allClients)
 
@@ -94,7 +95,6 @@ allClients.id= Date.now()
 clients_info.mixing_clients({...allClients})
 const transaction= DB.transaction(['crm'], 'readwrite')
 const objectStore = transaction.objectStore('crm')
-
 objectStore.add(allClients)
 
 objectStore.oncomplete= function(){
@@ -107,6 +107,13 @@ objectStore.oncomplete= function(){
 cleaning_allClient()
 form.reset()
 ui.creating_clients()
+if(!viewNew.classList.contains('d-none')){
+
+    viewNew.classList.add('d-none')
+    clients.classList.remove('d-none')
+   
+    console.log('Client')
+}
 console.log('Inputs Success!')
 
 
@@ -164,8 +171,14 @@ export function deleting_client(id){
     allClients.id= id
 
     document.querySelector('button[type="submit"]').textContent= 'Update'
-    clients.classList.remove('d-none')
-    viewNew.classList.add('d-none')
+    if(viewNew.classList.contains('d-none')){
+
+        // clients.classList.add('d-none')
+        clients.classList.add('d-none')
+        viewNew.classList.remove('d-none')
+        console.log('New Client')
+       
+    }  
     edition= true
  }   
 
@@ -212,3 +225,22 @@ export function create_db(){
 
 
    
+export function dark_mode(){
+
+    if(!display_container.classList.contains('modo_dark')){
+        display_container.classList.add('modo_dark', 'text-white')
+        table.classList.add('text-white')
+        btn_dark_mode.classList.remove('text-dark')
+        btn_dark_mode.classList.add('text-white')
+        
+    }else{
+        display_container.classList.remove('modo_dark', 'text-white')
+        table.classList.remove( 'text-white')
+        btn_dark_mode.classList.add('text-dark')
+        btn_dark_mode.classList.remove('text-white')
+    }
+  
+    bg-white
+     console.log('modo dark..')
+    
+    }
