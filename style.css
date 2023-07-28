@@ -40,3 +40,20 @@ background-color: #444442;
 .btn-mode{
     cursor: pointer;
 }
+
+#submit_btn{
+    background-color: #B0A3D4;
+    
+}
+
+.border-delete{
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+}
+
+.border-edit{
+   text-decoration: none;
+    color: green;
+    cursor: pointer;
+}

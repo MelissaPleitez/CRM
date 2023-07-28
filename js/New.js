@@ -4,33 +4,60 @@ import {DB, deleting_client, editing_client} from "./Functions.js";
 
 class NEW{
 
+    
+    alerts(message, type){
+
+        if(type==='error'){
+            Toastify({
+  
+                text: message,
+                class:'text-center',
+                style: {
+                  background: "#b5586b",
+                },
+                duration: 3000
+                
+                }).showToast();
+        }else{
+            Toastify({
+  
+                text: message,
+                class:'text-center',
+                style: {
+                  background: "#79b558",
+                },
+                duration: 3000
+                
+                }).showToast();
+        }
+
+    }
+
 
 creating_clients() {
    this.cleaning_table()
     const objectStore = DB.transaction('crm').objectStore('crm');
-    const total = objectStore.count()
-
-    total.onsuccess= function(){
-        console.log(total.result)
-    }
-
     objectStore.openCursor().onsuccess= function(e){
-    // console.log( e.target.result)
+
     const crm_client= e.target.result;
 
-    if(crm_client){
+   if(crm_client){
 
    const {name,email, telephone, company, id} = crm_client.value
 
     const tr_container= document.createElement('tr')
+    const btn_container= document.createElement('td')
     tr_container.dataset.id=id
     const td_name= document.createElement('td')
     const td_email= document.createElement('td')
     const td_telephone= document.createElement('td')
     const td_company= document.createElement('td')
-    const btn_delete= document.createElement('button')
-    const btn_edit= document.createElement('button')
+    const btn_delete= document.createElement('a')
+    const btn_edit= document.createElement('a')
+ 
+ 
     td_name.colSpan= '2'
+
     td_name.innerHTML= `${name}`
 
     td_email.colSpan= '2'
@@ -46,15 +73,12 @@ creating_clients() {
   
 
     btn_delete.onclick= ()=> deleting_client(id)
-        // console.log('Eliminando..')
-  
-        btn_delete.classList.add('btn','btn-danger', 'mr2')
+        btn_delete.classList.add('border-delete','mx-2', 'my-md-2')
         btn_delete.innerHTML= `Delete`
 
 
     btn_edit.onclick=()=>editing_client(crm_client.value)
-        // console.log('Editando..')
-        btn_edit.classList.add('btn','btn-info','mr2')
+        btn_edit.classList.add('border-edit')
         btn_edit.innerHTML=`Edit` 
 
    
@@ -65,12 +89,12 @@ creating_clients() {
     tr_container.appendChild(td_email)
     tr_container.appendChild(td_telephone)
     tr_container.appendChild(td_company)
-    // tr_container.appendChild(btn_edit)
-    // tr_container.appendChild(btn_delete)
-
+    btn_container.appendChild(btn_edit)
+    btn_container.appendChild(btn_delete)
+    tr_container.appendChild(btn_container)
     table_info.appendChild(tr_container)
-    table_info.appendChild(btn_edit)
-    table_info.appendChild(btn_delete)
+    
+
     crm_client.continue()
 
     }

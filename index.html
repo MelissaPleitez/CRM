@@ -22,16 +22,16 @@
                         <h2 class="fs-3 d-none d-sm-inline title_nav">Administration <p class="fs-3 d-none d-sm-inline">Menu</p></h2> 
                         
                     </a>
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
                         <li id="btn-client" class="nav-item">
                             <a href="#" id="client" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi bi-house-fill icono"></i> <span class="ms-1 d-none d-sm-inline">Clients</span>
+                                <i class="fs-4 bi bi-house-fill icono "></i> <span class="ms-1 d-none d-sm-inline text-dark">Clients</span>
                             </a>
                         </li>
                      
                         <li id="btn-new" >
                             <a href="#" id="newClients" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi bi-plus-circle-fill icono"></i> <span class="ms-1 d-none d-sm-inline ">New client</span></a>
+                                <i class="fs-4 bi bi-plus-circle-fill icono"></i> <span class="ms-1 d-none d-sm-inline text-dark">New client</span></a>
                         </li>
                     </ul>
                     <hr>
@@ -40,9 +40,9 @@
             <div id="display-container" class="col py-3">
                 <div class="d-flex">
                     <div class="dropdown pb-4 justify-content-between">
-                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://avatars.githubusercontent.com/u/92410851?v=4" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1 elements_light">Pleitez</span>
+                        <a id="crm_profile" href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://avatars.githubusercontent.com/u/92410851?v=4" alt="hugenerd" width="30" height="30" class="rounded-circle ">
+                            <span class="d-none d-sm-inline mx-1 elements_light ">Pleitez</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item elements_light" href="#">Settings</a></li>
@@ -53,15 +53,15 @@
                             <li><a class="dropdown-item elements" href="#">Sign out</a></li>
                         </ul>
                     </div>
-                    <div class="justify-content-between">
+                    <div class="justify-content-between mx-3">
                    <a class="btn-mode border-0 text-dark" title="btn_mode"><i class="bi bi-moon-fill"></i></a>
                     </div>
                    </div>
                
 
-                <div id="viewClient" class="text-center mb-4 ">
+                <div id="viewClient" class="container text-center mb-4 ">
                     <h1 class="fw-bold titles_light">CRM Client</h1>
-                    <table class="table ">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th colSpan="2">Name</th>
@@ -78,31 +78,33 @@
                         </tbody>
                       </table>
                 </div>
-                <div id="viewNew" class="text-center mb-4 d-none ">
+                <div id="viewNew" class="container text-center mb-4 d-none ">
                     <h1 class="fw-bold titles_light">CRM New Client</h1>
-
-                    <form id="form" action="" class="row g-1">
-                        <div class="col-auto">
-                            <label for="name" class="form-label elements_light">Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
-                        </div>
-                        <div class="col-auto">
-                            <label for="email" class="form-label elements_light">Email</label>
-                            <input type="email" name="email" id="email" class="form-control">
-                        </div>
-                        <div class="col-auto">
-                            <label for="telephone" class="form-label elements_light">Telephone</label>
-                            <input type="text" name="telephone" id="telephone" class="form-control">
-                        </div>
-                        <div class="col-auto">
-                            <label for="company" class="form-label elements_light">Company</label>
-                            <input type="text" name="company" id="company" class="form-control">
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-primary mb-3">Submit</button>
-                        </div>
-                    </form>
+                    <div class="d-flex  justify-content-center mt-4 rounded-2 border border-4 border-gray-200">
+                        <form id="form" action="" class="row g-2 d-flex justify-content-center p-4">
+                            <div class="mb-3 col-auto">
+                                <label for="name" class="form-label fw-bold elements_light">Name</label>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="mb-3 col-auto">
+                                <label for="email" class="form-label fw-bold elements_light">Email</label>
+                                <input type="email" name="email" id="email" class="form-control">
+                            </div>
+                            <div class="mb-3 col-auto">
+                                <label for="telephone" class="form-label fw-bold elements_light">Telephone</label>
+                                <input type="text" name="telephone" id="telephone" class="form-control">
+                            </div>
+                            <div class="mb-3 col-auto">
+                                <label for="company" class="form-label fw-bold elements_light">Company</label>
+                                <input type="text" name="company" id="company" class="form-control">
+                            </div>
+                            <div>
+                                <button id="submit_btn" type="submit" class="btn mb-3 text-white">Add Client</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+             
             </div>
         </div>
     </div>

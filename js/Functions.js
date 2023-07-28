@@ -3,7 +3,7 @@ company_input, allClients, display_container, table, btn_dark_mode} from "./Vari
 import NEW from "./New.js";
 import CLIENT from "./Clients.js";
 export let DB
-export let edition= false;
+export let edition;
 
 const ui = new NEW()
 const clients_info= new CLIENT()
@@ -21,11 +21,10 @@ export function viewClient(){
 }
 
 
+
 export function viewNewClient(){
 
     if(viewNew.classList.contains('d-none')){
-
-        // clients.classList.add('d-none')
         clients.classList.add('d-none')
         viewNew.classList.remove('d-none')
         console.log('New Client')
@@ -51,15 +50,15 @@ allClients[e.target.name] = e.target.value
 export function form_submit(e){
     e.preventDefault()
 
-    const {name_input,email_input, telephone_input, company_input } = allClients
+const {name, email, telephone, company } = allClients
 
-if(name_input === '' || email_input === '' || telephone_input === '' || company_input === ''){
-    console.log('Empty inputs!')
+if(name === '' || email === '' || telephone === '' || company === ''){
+    ui.alerts('Empty inputs!', 'error')
     return
 }
 
-if(e.target.id === 'email' && !check_email(email_input)){
-    console.log('Email format incorrect!')
+if(e.target.id === 'email' && !check_email(email)){
+    ui.alerts('Incorrect Email Format!', 'error')
     return
 }
 
@@ -73,21 +72,17 @@ if(edition){
     objectStore.put(allClients)
 
     transaction.oncomplete= ()=>{
-        console.log('Success.!')
-        document.querySelector('button[type="submit"]').textContent= 'Submit'
-        if(!viewNew.classList.contains('d-none')){
-
-            viewNew.classList.add('d-none')
-            clients.classList.remove('d-none')
-           
-            console.log('Client')
-        }
+        ui.alerts('Edited Correctly!',)
+        document.querySelector('button[type="submit"]').textContent= 'Add Client'
+        viewClient()
         edition= false
     }
 
     transaction.onerror= ()=>{
-        console.log('Hubo un error.!')
+        ui.alerts('Something went wrong!','error')
     }
+
+    
 
 }else{
 
@@ -98,23 +93,17 @@ const objectStore = transaction.objectStore('crm')
 objectStore.add(allClients)
 
 objectStore.oncomplete= function(){
-    console.log('Agregado!')
+    ui.alerts('Client Added!')
 }
 
 }
 
 
 cleaning_allClient()
+ui.alerts('Client Added!')
 form.reset()
 ui.creating_clients()
-if(!viewNew.classList.contains('d-none')){
-
-    viewNew.classList.add('d-none')
-    clients.classList.remove('d-none')
-   
-    console.log('Client')
-}
-console.log('Inputs Success!')
+viewClient()
 
 
 }
@@ -145,6 +134,7 @@ export function deleting_client(id){
     window.location.reload()
     objectStore.oncomplete=()=>{
         ui.creating_clients()
+        ui.alerts('Client Deleted!',)
     }
     
     objectStore.onerror=()=>{
@@ -171,14 +161,7 @@ export function deleting_client(id){
     allClients.id= id
 
     document.querySelector('button[type="submit"]').textContent= 'Update'
-    if(viewNew.classList.contains('d-none')){
-
-        // clients.classList.add('d-none')
-        clients.classList.add('d-none')
-        viewNew.classList.remove('d-none')
-        console.log('New Client')
-       
-    }  
+    viewNewClient()
     edition= true
  }   
 
@@ -232,15 +215,23 @@ export function dark_mode(){
         table.classList.add('text-white')
         btn_dark_mode.classList.remove('text-dark')
         btn_dark_mode.classList.add('text-white')
+        document.querySelector('#submit_btn').classList.remove('text-white')
+        document.querySelector('#submit_btn').classList.add('text-dark')
+        document.querySelector('#crm_profile').classList.remove('text-dark')
+        document.querySelector('#crm_profile').classList.add('text-white')
+     
         
     }else{
         display_container.classList.remove('modo_dark', 'text-white')
         table.classList.remove( 'text-white')
         btn_dark_mode.classList.add('text-dark')
         btn_dark_mode.classList.remove('text-white')
+        document.querySelector('#submit_btn').classList.add('text-white')
+        document.querySelector('#submit_btn').classList.remove('text-dark')
+        document.querySelector('#crm_profile').classList.add('text-dark')
+        document.querySelector('#crm_profile').classList.remove('text-white')
     }
   
-    bg-white
-     console.log('modo dark..')
+
     
     }
